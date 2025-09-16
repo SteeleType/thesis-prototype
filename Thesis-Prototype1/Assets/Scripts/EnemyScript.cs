@@ -39,10 +39,10 @@ public class EnemyScript : MonoBehaviour
             health -= damage;
             UpdateColor();
         
-        
 
         if (health <= 0)
         {
+            
             Destroy(gameObject);
         }
     }
@@ -51,8 +51,11 @@ public class EnemyScript : MonoBehaviour
     {
         if (health <= 0)
         {
+            
             Destroy(gameObject);
         }
+        
+
         
         Vector2 direction = (player.position - transform.position).normalized;
         rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);

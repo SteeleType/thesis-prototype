@@ -181,4 +181,4 @@ MonoBehaviour:
   health: 3
   iFrameTimer: 2
   moveSpeed: 2
-  player: {fileID: 1122905506668347596, guid: a09567b2637af0541bd04814ef77afc4, type: 3}
+  deathParticle: {fileID: 7613456477688294973, guid: 3e816de9f3af15f4ea3ac048cb6d7746, type: 3}

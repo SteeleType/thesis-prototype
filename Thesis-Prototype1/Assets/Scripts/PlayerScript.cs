@@ -9,7 +9,8 @@ public class PlayerScript : MonoBehaviour
     public float movementSpeed;
     private Rigidbody2D rb2d;
     private Vector2 input;
-    public Animator animator; 
+    public Animator animator;
+    public DeckManager deckManager;
 
     void Start()
     {
@@ -36,10 +37,14 @@ public class PlayerScript : MonoBehaviour
 
         input.Normalize();
         
+        if (Input.GetKeyDown(KeyCode.Space) &&  deckManager.curredntIndex == 5)
+        {
+            playerHealth += 3f;
+        }
     }
     void FixedUpdate()
     {
-        playerHealthText.text = playerHealth.ToString();
+        playerHealthText.text = "Player Health: " + playerHealth.ToString();
         rb2d.linearVelocity = input * movementSpeed;
 
         if (input.sqrMagnitude > 0.01f)

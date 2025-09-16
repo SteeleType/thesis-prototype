@@ -7,15 +7,16 @@ public class MagicManager : MonoBehaviour
 {
     public Animator fireAnimator;
     public Animator lightningAnimator;
+    public DeckManager  deckManager;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Space) && deckManager.curredntIndex == 3)
         {
             fireAnimator.SetTrigger("Fire");
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
+        if (Input.GetKeyDown(KeyCode.Space) &&  deckManager.curredntIndex == 2)
         {
             lightningAnimator.SetTrigger("Lightning");
         }
