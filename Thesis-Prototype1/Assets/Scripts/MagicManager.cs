@@ -1,18 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
 
 public class MagicManager : MonoBehaviour
 {
-    public GameObject lightningProjectile;
-    public Transform lightningSpawn;
-    public float lightningSpeed = 20f;
-    public float lightningTime = 3f;
+    public Animator fireAnimator;
+    public Animator lightningAnimator;
 
-
-
-
-    private void LightningStrike()
+    void Update()
     {
-        lightningProjectile.transform.position = lightningSpawn.position;
-        GameObject lightningBolt = Instantiate(lightningProjectile, lightningSpawn);
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            fireAnimator.SetTrigger("Fire");
+        }
+
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            lightningAnimator.SetTrigger("Lightning");
+        }
     }
 }
+
+    
