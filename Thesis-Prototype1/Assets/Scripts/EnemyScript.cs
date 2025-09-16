@@ -9,6 +9,8 @@ public class EnemyScript : MonoBehaviour
     private Rigidbody2D rb;
     private bool canBeHit;
     public float iFrameTimer = 2f;
+    public float moveSpeed = 2f;
+    private Transform player;
     
 
     // Update is called once per frame
@@ -19,6 +21,8 @@ public class EnemyScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         UpdateColor();
         canBeHit = true;
+        GameObject playerObject =  GameObject.FindWithTag("Player");
+        player = playerObject.transform;
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -49,6 +53,9 @@ public class EnemyScript : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        Vector2 direction = (player.position - transform.position).normalized;
+        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
     }
 
     private void UpdateColor()
